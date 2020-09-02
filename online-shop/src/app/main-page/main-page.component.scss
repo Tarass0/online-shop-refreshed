@@ -1,0 +1,16 @@
+.wrapper {
+  .goods {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    app-goods-item {
+      width: 70%;
+    }
+  }
+}
+@media screen and (max-width: 556px) {
+  .wrapper .goods app-goods-item {
+    width: 90%;
+  }
+}

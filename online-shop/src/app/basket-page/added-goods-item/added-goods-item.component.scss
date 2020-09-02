@@ -1,0 +1,97 @@
+.goods__item {
+  border-bottom: 1px solid #aea7a7;
+  padding-bottom: 10px;
+  margin-top: 15px;
+  .content {
+    display: flex;
+    font-size: 17px;
+    .index {
+      width: 5%;
+      padding: 0 10px;
+    }
+    .goods__item-img {
+      width: 25%;
+      padding: 0 10px;
+    }
+    .goods__item-name {
+      width: 20%;
+      padding: 0 10px;
+    }
+    .goods__item__info {
+      width: 50%;
+      display: flex;
+      .info__titles {
+        display: none;
+      }
+      .goods__item-price {
+        width: 20%;
+        padding: 0 10px;
+      }
+      .goods__item-count {
+        width: 40%;
+        padding: 0 10px;
+        input {
+          width: 100%;
+        }
+        small.info__message {
+          color: #ea0e0e;
+        }
+      }
+      .total__price {
+        width: 40%;
+        padding: 0 10px;
+        word-break: break-all;
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    button.bth__remove-from-basket {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 556px) {
+  .goods__item {
+    .content {
+      flex-wrap: wrap;
+      .index {
+        width: 10%;
+      }
+      .goods__item-img {
+        width: 40%;
+      }
+      .goods__item-name {
+        width: 50%;
+      }
+      .goods__item__info {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        .info__titles {
+          width: 100%;
+          display: flex;
+          font-weight: bold;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #aea7a7;
+          .price {
+            width: 20%;
+            padding: 0 10px;
+          }
+          .count {
+            width: 40%;
+            padding: 0 10px;
+          }
+          .total__price {
+            width: 40%;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}

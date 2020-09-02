@@ -1,0 +1,39 @@
+<li class="goods__item">
+  <div class="content">
+    <div class="index">{{ index + 1 }}.</div>
+    <div class="goods__item-img">
+      <img [src]="goodsItem.src" alt="Cocktail" />
+    </div>
+    <div class="goods__item-name">
+      {{ goodsItem.name }}
+    </div>
+    <div class="goods__item__info">
+      <div class="info__titles">
+        <div class="price">Price</div>
+        <div class="count">Count</div>
+        <div class="total__price">Total price</div>
+      </div>
+      <div class="goods__item-price">{{ goodsItem.price }}$</div>
+      <div class="goods__item-count">
+        <input
+          type="number"
+          min="1"
+          step="1"
+          [(ngModel)]="currentCount"
+          (keyup)="inputValueValidation()"
+          (blur)="checkInputValue()"
+          (change)="onChangeCountByArrow()"
+        />
+        <small class="info__message" *ngIf="showInfoMessage">
+          The maximum number of orders for this cocktail is {{ maxCountOrders }}
+        </small>
+      </div>
+      <div class="total__price">{{ totalPriceForGoodsItem }}$</div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button type="button" class="bth bth__remove-from-basket" (click)="removeGoodsItemFromBasket()">
+      Remove from basket
+    </button>
+  </div>
+</li>

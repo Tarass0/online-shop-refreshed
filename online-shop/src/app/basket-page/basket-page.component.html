@@ -1,0 +1,70 @@
+<div class="wrapper">
+  <div class="navigation">
+    <a routerLink="/" class="navigation__main-page">Go to main page</a>
+  </div>
+  <div class="title">Your basket</div>
+  <div class="content" *ngIf="goodsInBasket.length; else infoMessage">
+    <div class="sorting__modes">
+      <button
+        type="button"
+        class="btn btn-sorts-default"
+        [ngClass]="{
+          'active__sorted-state': currentFilterSortState === 'default'
+        }"
+        [disabled]="currentFilterSortState === 'default'"
+        (click)="currentFilterSortState = 'default'"
+      >
+        Sort in the order of adding the goods (default)
+      </button>
+      <button
+        type="button"
+        class="btn btn-sorts-by-little-price"
+        [ngClass]="{
+          'active__sorted-state': currentFilterSortState === 'byLittlePrice'
+        }"
+        [disabled]="currentFilterSortState === 'byLittlePrice'"
+        (click)="currentFilterSortState = 'byLittlePrice'"
+      >
+        Sort from smallest to largest price
+      </button>
+      <button
+        type="button"
+        class="btn btn-sorts-by-big-price"
+        [ngClass]="{
+          'active__sorted-state': currentFilterSortState === 'byBiggestPrice'
+        }"
+        [disabled]="currentFilterSortState === 'byBiggestPrice'"
+        (click)="currentFilterSortState = 'byBiggestPrice'"
+      >
+        Sort from largest to smallest price
+      </button>
+    </div>
+    <div class="orders">
+      <div class="info__titles">
+        <div class="index">#</div>
+        <div class="photo">Photo</div>
+        <div class="name">Name</div>
+        <div class="price">Price</div>
+        <div class="count">Count</div>
+        <div class="total__price">Total price</div>
+      </div>
+      <ul class="added__goods">
+        <app-added-goods-item
+          (removedGoodsItem)="onRemoveGoodsItem($event)"
+          *ngFor="
+            let goodsItem of goodsInBasket | basketFilter: currentFilterSortState;
+            let i = index
+          "
+          [goodsItem]="goodsItem"
+          [index]="i"
+        ></app-added-goods-item>
+      </ul>
+    </div>
+    <div id="total__price">The total price of all goods: {{ totalPrice }}$</div>
+  </div>
+</div>
+<ng-template #infoMessage>
+  <div class="info__message">
+    There are't order in your basket
+  </div>
+</ng-template>

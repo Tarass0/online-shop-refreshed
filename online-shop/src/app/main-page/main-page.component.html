@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div class="navigation">
+    <a routerLink="/basket" class="navigation__basket">Go to basket</a>
+  </div>
+  <ul class="goods">
+    <app-goods-item *ngFor="let goodsItem of goods" [goodsItem]="goodsItem"></app-goods-item>
+  </ul>
+</div>

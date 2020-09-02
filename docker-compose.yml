@@ -1,0 +1,9 @@
+version: '3.5'
+services:
+  angular-service:
+    container_name: online-shop
+    build: ./online-shop
+    volumes:
+      - './online-shop:/usr/src/app'
+    ports:
+      - '4200:4200'

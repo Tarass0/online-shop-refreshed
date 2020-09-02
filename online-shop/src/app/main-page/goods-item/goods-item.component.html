@@ -1,0 +1,39 @@
+<li class="goods__item">
+  <div class="content">
+    <div class="goods__item-img">
+      <img [src]="goodsItem.src" alt="Cocktail" />
+    </div>
+    <div class="goods__item-info">
+      <div class="goods__item-name">
+        {{ goodsItem.name }}
+      </div>
+      <div class="goods__item-description">
+        {{ goodsItem.label }}
+      </div>
+      <div class="goods__item-price">
+        <span>Price:</span><span>{{ goodsItem.price }}$</span>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button
+      type="button"
+      class="bth bth__add-to-basket"
+      [ngClass]="{
+        already__clicked: isGoodsItemAlreadyInBasket
+      }"
+      [disabled]="isGoodsItemAlreadyInBasket"
+      (click)="addGoodsItemToBasket()"
+    >
+      {{ messageForAddBth }}
+    </button>
+    <button
+      type="button"
+      class="bth bth__remove-from-basket"
+      *ngIf="isGoodsItemAlreadyInBasket"
+      (click)="removeGoodsItemFromBasket()"
+    >
+      Remove from basket
+    </button>
+  </div>
+</li>
